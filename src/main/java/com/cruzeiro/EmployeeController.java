@@ -23,21 +23,19 @@ public class EmployeeController {
 	
 	@RequestMapping("/showForm")
 	public String showForm(Model model) {
-		Employee employee = new Employee();
-		
-		model.addAttribute("employee", employee);
-		return "employee-form";
+	    model.addAttribute("employee", new Employee());
+	    return "employee-form";
 	}
 	
 	@RequestMapping("/processForm")
 	public String processForm(
-			@Valid @ModelAttribute("employee") Employee employee,
-			BindingResult validationRules) 
+	        @Valid @ModelAttribute("employee") Employee employee,
+	        BindingResult validationRules) 
 	{
-		if(validationRules.hasErrors()) {
-			return "employee-form";
-		}else {
-			return "employee-confirmation";
-		}
+	    if (validationRules.hasErrors()) {
+	        return "employee-form";
+	    } else {
+	        return "employee-confirmation";
+	    }
 	}
 }

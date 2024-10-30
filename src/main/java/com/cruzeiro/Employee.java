@@ -8,6 +8,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class Employee {
+	@NotNull(message = "Id é obrigatório")
 	@Min(value=0, message="Id deve ser maior ou igual a 0.")
 	@Max(value=10, message="Id deve ser menor ou igual a 10.")
 	private int id;
